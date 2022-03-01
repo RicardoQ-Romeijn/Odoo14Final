@@ -1,0 +1,96 @@
+<odoo>
+	<data>
+
+		<!--Vistas de pedidos-->
+
+		<record model="ir.ui.view" id="modelos9.pedidos_list_view">
+			<field name="name">modelos9.pedidos.view.tree</field>
+			<field name="model">modelos9.pedidos</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="idPedidos"/>
+					<field name="idCliente"/>
+					<field name="idEmpleado"/>
+					<field name="cargo"/>
+					<field name="date"/>
+				</tree>
+			</field>
+		</record>
+
+		<!-- search -->
+
+		<record model="ir.ui.view" id="modelos9.pedidos_search_view">
+			<field name="name">modelos9.pedidos.view.search</field>
+			<field name="model">modelos9.pedidos</field>
+			<field name="arch" type="xml">
+				<search>
+					<field name="idPedidos"/>
+					<field name="idCliente"/>
+					<field name="idEmpleado"/>
+					<field name="cargo"/>
+					<field name="date"/>
+					<group>
+						<filter name="group_by_name" string="idPedidos" context="{'gropup_by':'idPedidos'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<!-- form -->
+
+		<record model="ir.ui.view" id="modelos9.pedidos_form_view">
+			<field name="name">modelos9.pedidos.view.form</field>
+			<field name="model">modelos9.pedidos</field>
+			<field name="arch" type="xml">
+				<form string="Información Pedidos">
+					<sheet>
+						<div class="oe_title">
+							<h1>
+                				Pedidos:
+							</h1>
+						</div>
+						<group>
+							<group>
+								<separator string="Datos"/>
+								<field name="idPedidos" placeholder="ID Pedidos"/>
+								<field name="idCliente" placeholder="ID Clientes"/>
+								<field name="idEmpleado" placeholder="ID Empleados"/>
+								<field name="cargo" placeholder="Cargp Pedidos"/>
+								<field name="date" placeholder="Fecha Pedidos"/>
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+
+		</record>
+
+		<!-- calendar -->
+
+		<record model="ir.ui.view" id="modelos9.pedidos_calendar_view">
+			<field name="name">modelos9.pedidos.view.calendar</field>
+			<field name="model">modelos9.pedidos</field>
+			<field name="arch" type="xml">
+				<calendar string="Fecha de Pedido" date_start="date" mode="month">
+					<field name="idPedidos"/>
+					<field name="idCliente"/>
+					<field name="idEmpleado"/>
+					<field name="cargo"/>
+				</calendar>
+			</field>
+		</record>
+
+		<!-- Definición de menús-->
+
+		<record model="ir.actions.act_window" id="modelos9.pedidos_action_window">
+			<field name="name">Pedidos</field>
+			<field name="res_model">modelos9.pedidos</field>
+			<field name="view_mode">tree,form,calendar</field>
+		</record>
+
+		<menuitem name="Pedidos" id="modelos9.menu_pedidos" parent="modelos9.menu_root" action="modelos9.pedidos_action_window"/>
+		<!-- Añadido el action de abajo a arriba, para volver, borra el action ^ -->
+		<!--<menuitem name="Todos los Pedidos" id="modelos9.menu_pedidos_list" parent="modelos9.menu_pedidos" action="modelos9.pedidos_action_window"/>-->
+
+	</data>
+</odoo>

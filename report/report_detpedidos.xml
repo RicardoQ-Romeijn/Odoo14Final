@@ -1,0 +1,29 @@
+<odoo>
+    <record id="modelos9.detpedidos_report" model="ir.actions.report">
+        <field name="name"> Informe de Detalle Pedidos</field>
+        <field name="model">modelos9.detpedidos</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">modelos9.detpedidos_report_view</field>
+        <field name="report_file">modelos9.detpedidos_report</field>
+        <field name="binding_model_id" ref="model_modelos9_detpedidos"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="detpedidos_report_view">
+        <t t-call="web.html_container">
+            <!-- muestra datos de la empresa (salta página) -->
+            <t t-call="web.external_layout">
+                <h1>Detalle Pedidos</h1><br />
+                <t t-foreach="docs" t-as="detpedidos">
+                    <ul>
+                        <li>ID Pedido: <span t-field="productos.idPedidos" /></li>
+                        <li>ID Producto: <span t-field="productos.idProducto" /></li>
+                        <li>Precio x Unidad: <span t-field="productos.preciounidad" /></li>
+                        <li>Cantidad: <span t-field="productos.cantidad" /></li>
+                        <li>Total: <span t-field="productos.total" /></li>
+                    </ul>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

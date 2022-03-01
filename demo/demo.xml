@@ -1,0 +1,172 @@
+<odoo>
+    <data>
+	<!-- Clientes -->
+		<record id="cliente1" model="modelos9.clientes">
+			<field name="idCliente">cli1</field>
+			<field name="dni">871234873</field>
+			<field name="nombre">Pedro</field>
+			<field name="direccion">Calle La Paz, 21</field>
+      		<field name="relidCliente">1</field>
+		</record>
+		<record id="cliente2" model="modelos9.clientes">
+			<field name="idCliente">cli2</field>
+			<field name="dni">63455234</field>
+			<field name="nombre">Antonio</field>
+			<field name="direccion">Calle La Pepita, 3</field>
+      		<field name="relidCliente">2</field>
+		</record>
+		<record id="cliente3" model="modelos9.clientes">
+			<field name="idCliente">cli3</field>
+			<field name="dni">89532462</field>
+			<field name="nombre">Paula</field>
+			<field name="direccion">Calle Federico, S/N</field>
+      		<field name="relidCliente">3</field>
+		</record>
+
+	<!-- Proveedores -->
+		<record id="proveedor1" model="modelos9.proveedores">
+			<field name="idProveedor">prov1</field>
+			<field name="nombre">Cajas LTN</field>
+			<field name="pais">Holandesa</field>
+			<field name="telefono">668323421</field>
+      		<field name="relidProveedor">1</field>
+		</record>
+		<record id="proveedor2" model="modelos9.proveedores">
+			<field name="idProveedor">prov2</field>
+			<field name="nombre">Papeles INC.</field>
+			<field name="pais">Inglesa</field>
+			<field name="telefono">467235234</field>
+      		<field name="relidProveedor">2</field>
+		</record>
+		<record id="proveedor3" model="modelos9.proveedores">
+			<field name="idProveedor">prov3</field>
+			<field name="nombre">Bolic Enterpise</field>
+			<field name="pais">Sueca</field>
+			<field name="telefono">572373343</field>
+      		<field name="relidProveedor">3</field>
+		</record>
+
+	<!-- Empleados -->
+		<record id="empleados1" model="modelos9.empleados">
+			<field name="idEmpleado">empl1</field>
+			<field name="dni">12345678</field>
+			<field name="nombre">Fede</field>
+			<field name="direccion">Piso La Palma, 2, 4A</field>
+      		<field name="relidEmpleado">1</field>
+		</record>
+		<record id="empleados2" model="modelos9.empleados">
+			<field name="idEmpleado">empl2</field>
+			<field name="dni">84567345</field>
+			<field name="nombre">El Chispitas</field>
+			<field name="direccion">El Barrio, 3B</field>
+      		<field name="relidEmpleado">2</field>
+		</record>
+		<record id="empleados3" model="modelos9.empleados">
+			<field name="idEmpleado">empl3</field>
+			<field name="dni">97357424</field>
+			<field name="nombre">Adplfo</field>
+			<field name="direccion">La Clara Calle, 75</field>
+      		<field name="relidEmpleado">3</field>
+		</record>
+
+	<!-- Categorias -->
+		<record id="categorias1" model="modelos9.categorias">
+			<field name="idCategoria">cat1</field>
+			<field name="nombre">Utencilios</field>
+			<field name="descripcion">Utencilios de Oficina</field>
+      		<field name="relidCategoria">1</field>
+		</record>
+
+	<!-- Productos -->
+		<record id="productos1" model="modelos9.productos">
+			<field name="idProducto">prod1</field>
+			<field name="idProveedor">1</field>
+			<field name="idCategoria">1</field>
+			<field name="nombre">Cajas de Carton</field>
+			<field name="preciounidad">5</field>
+      		<field name="relidProducto">1</field>
+		</record>
+		<record id="productos2" model="modelos9.productos">
+			<field name="idProducto">prod2</field>
+			<field name="idProveedor">2</field>
+			<field name="idCategoria">1</field>
+			<field name="nombre">Papel</field>
+			<field name="preciounidad">2</field>
+      		<field name="relidProducto">2</field>
+		</record>
+		<record id="productos3" model="modelos9.productos">
+			<field name="idProducto">prod3</field>
+			<field name="idProveedor">3</field>
+			<field name="idCategoria">1</field>
+			<field name="nombre">Boligrafo Bic</field>
+			<field name="preciounidad">1</field>
+     		<field name="relidProducto">3</field>
+		</record>
+
+	<!-- Pedidos -->
+		<record id="pedidos1" model="modelos9.pedidos">
+			<field name="idPedidos">ped1</field>
+			<field name="idCliente">1</field>
+			<field name="idEmpleado">1</field>
+			<field name="cargo">10</field>
+			<field name="date">2022-1-11</field>
+      		<field name="relidPedidos">1</field>
+		</record>
+		<record id="pedidos2" model="modelos9.pedidos">
+			<field name="idPedidos">ped2</field>
+			<field name="idCliente">2</field>
+			<field name="idEmpleado">1</field>
+			<field name="cargo">6</field>
+			<field name="date">2022-1-12</field>
+      		<field name="relidPedidos">ped2</field>
+		</record>
+		<record id="pedidos3" model="modelos9.pedidos">
+			<field name="idPedidos">ped3</field>
+			<field name="idCliente">3</field>
+			<field name="idEmpleado">2</field>
+			<field name="cargo">2</field>
+			<field name="date">2022-1-15</field>
+      		<field name="relidPedidos">ped3</field>
+		</record>
+
+	<!-- Detalle Pedidos -->
+		<record id="detpedidos1" model="modelos9.detpedidos">
+			<field name="idPedidos">1</field>
+			<field name="idProducto">1</field>
+			<field name="preciounidad">5</field>
+			<field name="cantidad">2</field>
+		</record>
+		<record id="detpedidos2" model="modelos9.detpedidos">
+			<field name="idPedidos">2</field>
+			<field name="idProducto">2</field>
+			<field name="preciounidad">2</field>
+			<field name="cantidad">3</field>
+		</record>
+		<record id="detpedidos3" model="modelos9.detpedidos">
+			<field name="idPedidos">3</field>
+			<field name="idProducto">3</field>
+			<field name="preciounidad">2</field>
+			<field name="cantidad">2</field>
+		</record>
+
+	<!-- Compañias de Envio -->
+		<record id="companiasenv1" model="modelos9.companiasenv">
+			<field name="idCompanias">comp1</field>
+			<field name="nombre">FedEx</field>
+			<field name="telefono">643667223</field>
+		</record>
+		<record id="companiasenv2" model="modelos9.companiasenv">
+			<field name="idCompanias">comp2</field>
+			<field name="nombre">Correos</field>
+			<field name="telefono">446885223</field>
+		</record>
+
+	<!-- Transporte -->
+		<record id="transporte1" model="modelos9.transporte">
+			<field name="idTransporte">trans1</field>
+			<field name="nombre">Vehiculo 1</field>
+			<field name="vehiculo">Ford Pick-Up</field>
+		</record>
+    
+    </data>
+</odoo>

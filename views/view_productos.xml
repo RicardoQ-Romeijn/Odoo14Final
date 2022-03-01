@@ -1,0 +1,96 @@
+<odoo>
+	<data>
+
+		<!--Vistas de productos-->
+
+		<record model="ir.ui.view" id="modelos9.productos_list_view">
+			<field name="name">modelos9.productos.view.tree</field>
+			<field name="model">modelos9.productos</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="idProducto"/>
+					<field name="idProveedor"/>
+					<field name="idCategoria"/>
+					<field name="nombre"/>
+					<field name="preciounidad"/>
+				</tree>
+			</field>
+		</record>
+
+		<!-- search -->
+
+		<record model="ir.ui.view" id="modelos9.productos_search_view">
+			<field name="name">modelos9.productos.view.search</field>
+			<field name="model">modelos9.productos</field>
+			<field name="arch" type="xml">
+				<search>
+					<field name="idProducto"/>
+					<field name="idProveedor"/>
+					<field name="idCategoria"/>
+					<field name="nombre"/>
+					<field name="preciounidad"/>
+					<group>
+						<filter name="group_by_name" string="idProducto" context="{'gropup_by':'idProducto'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<!-- form -->
+
+		<record model="ir.ui.view" id="modelos9.productos_form_view">
+			<field name="name">modelos9.productos.view.form</field>
+			<field name="model">modelos9.productos</field>
+			<field name="arch" type="xml">
+				<form string="Información Productos">
+					<sheet>
+						<div class="oe_title">
+							<h1>
+                				Productos:
+							</h1>
+						</div>
+						<group>
+							<group>
+								<separator string="Datos"/>
+								<field name="idProducto" placeholder="ID Productos"/>
+								<field name="idProveedor" placeholder="ID Proveedores"/>
+								<field name="idCategoria" placeholder="ID Categorias"/>
+								<field name="nombre" placeholder="Nombre Productos"/>
+								<field name="preciounidad" placeholder="Precio Por Unidad"/>
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+
+		</record>
+
+		<!-- calendar
+
+		<record model="ir.ui.view" id="modelos9.productos_calendar_view">
+			<field name="name">modelos9.productos.view.calendar</field>
+			<field name="model">modelos9.productos</field>
+			<field name="arch" type="xml">
+				<calendar string="Fecha de Publicación" date_start="date" color="name" mode="month">
+					<field name="name"/>
+					<field name="imagen"/>
+					<field name="precio"/>
+				</calendar>
+			</field>
+		</record>
+
+		Definición de menús-->
+
+		<record model="ir.actions.act_window" id="modelos9.productos_action_window">
+			<field name="name">Productos</field>
+			<field name="res_model">modelos9.productos</field>
+			<!--<field name="view_mode">tree,form,calendar</field>-->
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem name="Productos" id="modelos9.menu_productos" parent="modelos9.menu_root" action="modelos9.productos_action_window"/>
+		<!-- Añadido el action de abajo a arriba, para volver, borra el action ^ -->
+		<!--<menuitem name="Todos los Productos" id="modelos9.menu_productos_list" parent="modelos9.menu_productos" action="modelos9.productos_action_window"/>-->
+
+	</data>
+</odoo>

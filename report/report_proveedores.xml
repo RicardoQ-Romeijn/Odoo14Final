@@ -1,0 +1,28 @@
+<odoo>
+    <record id="modelos9.proveedores_report" model="ir.actions.report">
+        <field name="name"> Informe de Proveedores</field>
+        <field name="model">modelos9.proveedores</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">modelos9.proveedores_report_view</field>
+        <field name="report_file">modelos9.proveedores_report</field>
+        <field name="binding_model_id" ref="model_modelos9_proveedores"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="proveedores_report_view">
+        <t t-call="web.html_container">
+            <!-- muestra datos de la empresa (salta página) -->
+            <t t-call="web.external_layout">
+                <h1>Proveedores</h1><br />
+                <t t-foreach="docs" t-as="proveedores">
+                    <ul>
+                        <li>ID Proveedor: <span t-field="proveedores.idProveedor" /></li>
+                        <li>Nombre: <span t-field="proveedores.nombre" /></li>
+                        <li>Pais: <span t-field="proveedores.pais" /></li>
+                        <li>Telefono: <span t-field="proveedores.telefono" /></li>
+                    </ul>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

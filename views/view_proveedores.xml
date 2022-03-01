@@ -1,0 +1,93 @@
+<odoo>
+	<data>
+
+		<!--Vistas de proveedores-->
+
+		<record model="ir.ui.view" id="modelos9.proveedores_list_view">
+			<field name="name">modelos9.proveedores.view.tree</field>
+			<field name="model">modelos9.proveedores</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="idProveedor"/>
+					<field name="nombre"/>
+					<field name="pais"/>
+					<field name="telefono"/>
+				</tree>
+			</field>
+		</record>
+
+		<!-- search -->
+
+		<record model="ir.ui.view" id="modelos9.proveedores_search_view">
+			<field name="name">modelos9.proveedores.view.search</field>
+			<field name="model">modelos9.proveedores</field>
+			<field name="arch" type="xml">
+				<search>
+					<field name="idProveedor"/>
+					<field name="nombre"/>
+					<field name="pais"/>
+					<field name="telefono"/>
+					<group>
+						<filter name="group_by_name" string="idProveedor" context="{'gropup_by':'idProveedor'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<!-- form -->
+
+		<record model="ir.ui.view" id="modelos9.proveedores_form_view">
+			<field name="name">modelos9.proveedores.view.form</field>
+			<field name="model">modelos9.proveedores</field>
+			<field name="arch" type="xml">
+				<form string="Información Proveedores">
+					<sheet>
+						<div class="oe_title">
+							<h1>
+                				Proveedores:
+							</h1>
+						</div>
+						<group>
+							<group>
+								<separator string="Datos"/>
+								<field name="idProveedor" placeholder="ID Proveedores"/>
+								<field name="nombre" placeholder="Nombre Proveedores"/>
+								<field name="pais" placeholder="Pais Proveedores"/>
+								<field name="telefono" placeholder="Telefono Proveedores"/>
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+
+		</record>
+
+		<!-- calendar
+
+		<record model="ir.ui.view" id="modelos9.proveedores_calendar_view">
+			<field name="name">modelos9.proveedores.view.calendar</field>
+			<field name="model">modelos9.proveedores</field>
+			<field name="arch" type="xml">
+				<calendar string="Fecha de Publicación" date_start="date" color="name" mode="month">
+					<field name="name"/>
+					<field name="imagen"/>
+					<field name="precio"/>
+				</calendar>
+			</field>
+		</record>
+
+		Definición de menús-->
+
+		<record model="ir.actions.act_window" id="modelos9.proveedores_action_window">
+			<field name="name">Proveedores</field>
+			<field name="res_model">modelos9.proveedores</field>
+			<!--<field name="view_mode">tree,form,calendar</field>-->
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem name="Proveedores" id="modelos9.menu_proveedores" parent="modelos9.menu_root" action="modelos9.proveedores_action_window"/>
+		<!-- Añadido el action de abajo a arriba, para volver, borra el action ^ -->
+		<!--<menuitem name="Todos los Proveedores" id="modelos9.menu_proveedores_list" parent="modelos9.menu_proveedores" action="modelos9.proveedores_action_window"/>-->
+
+	</data>
+</odoo>

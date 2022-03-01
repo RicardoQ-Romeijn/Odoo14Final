@@ -1,0 +1,28 @@
+<odoo>
+    <record id="modelos9.clientes_report" model="ir.actions.report">
+        <field name="name"> Informe de Clientes</field>
+        <field name="model">modelos9.clientes</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">modelos9.clientes_report_view</field>
+        <field name="report_file">modelos9.clientes_report</field>
+        <field name="binding_model_id" ref="model_modelos9_clientes"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="clientes_report_view">
+        <t t-call="web.html_container">
+            <!-- muestra datos de la empresa (salta página) -->
+            <t t-call="web.external_layout">
+                <h1>Clientes</h1><br />
+                <t t-foreach="docs" t-as="clientes">
+                    <ul>
+                        <li>ID Cliente: <span t-field="clientes.idCliente" /></li>
+                        <li>DNI: <span t-field="clientes.dni" /></li>
+                        <li>Nombre: <span t-field="clientes.nombre" /></li>
+                        <li>Dirección: <span t-field="clientes.direccion" /></li>
+                    </ul>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

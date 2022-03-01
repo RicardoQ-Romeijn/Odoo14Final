@@ -1,0 +1,27 @@
+<odoo>
+    <record id="modelos9.categorias_report" model="ir.actions.report">
+        <field name="name"> Informe de Categorias</field>
+        <field name="model">modelos9.categorias</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">modelos9.categorias_report_view</field>
+        <field name="report_file">modelos9.categorias_report</field>
+        <field name="binding_model_id" ref="model_modelos9_categorias"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="categorias_report_view">
+        <t t-call="web.html_container">
+            <!-- muestra datos de la empresa (salta página) -->
+            <t t-call="web.external_layout">
+                <h1>Categorias</h1><br />
+                <t t-foreach="docs" t-as="categorias">
+                    <ul>
+                        <li>ID Categoria: <span t-field="categorias.idCategoria" /></li>
+                        <li>Nombre: <span t-field="categorias.nombre" /></li>
+                        <li>Descripción: <span t-field="categorias.descripcion" /></li>
+                    </ul>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

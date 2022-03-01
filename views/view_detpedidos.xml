@@ -1,0 +1,82 @@
+<odoo>
+	<data>
+
+		<!--Vistas de detpedidos-->
+
+		<record model="ir.ui.view" id="modelos9.detpedidos_list_view">
+			<field name="name">modelos9.detpedidos.view.tree</field>
+			<field name="model">modelos9.detpedidos</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="idPedidos"/>
+					<field name="idProducto"/>
+					<field name="preciounidad"/>
+					<field name="cantidad"/>
+					<field name="total"/>
+				</tree>
+			</field>
+		</record>
+
+		<!-- search -->
+
+		<record model="ir.ui.view" id="modelos9.detpedidos_search_view">
+			<field name="name">modelos9.detpedidos.view.search</field>
+			<field name="model">modelos9.detpedidos</field>
+			<field name="arch" type="xml">
+				<search>
+					<field name="idPedidos"/>
+					<field name="idProducto"/>
+					<field name="preciounidad"/>
+					<field name="cantidad"/>
+					<field name="total"/>
+					<group>
+						<filter name="group_by_name" string="idPedidos" context="{'gropup_by':'idPedidos'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<!-- form -->
+
+		<record model="ir.ui.view" id="modelos9.detpedidos_form_view">
+			<field name="name">modelos9.detpedidos.view.form</field>
+			<field name="model">modelos9.detpedidos</field>
+			<field name="arch" type="xml">
+				<form string="Información Detalles de Pedidos">
+					<sheet>
+						<div class="oe_title">
+							<h1>
+                				Detalles de Pedidos:
+							</h1>
+						</div>
+						<group>
+							<group>
+								<separator string="Datos"/>
+								<field name="idPedidos" placeholder="ID Pedidos"/>
+								<field name="idProducto" placeholder="ID Pedidos"/>
+								<field name="preciounidad" placeholder="Precio Por Unidad"/>
+								<field name="cantidad" placeholder="Cantidad de Pedidos"/>
+								<field name="total" placeholder="Total"/>
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+
+		</record>
+
+		<!-- Definición de menús-->
+
+		<record model="ir.actions.act_window" id="modelos9.detpedidos_action_window">
+			<field name="name">Detalles de Pedidos</field>
+			<field name="res_model">modelos9.detpedidos</field>
+			<!--<field name="view_mode">tree,form,calendar</field>-->
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem name="Detalles de Pedidos" id="modelos9.menu_detpedidos" parent="modelos9.menu_root" action="modelos9.detpedidos_action_window"/>
+		<!-- Añadido el action de abajo a arriba, para volver, borra el action ^ -->
+		<!--<menuitem name="Todos los Detalles de Pedidos" id="modelos9.menu_detpedidos_list" parent="modelos9.menu_detpedidos" action="modelos9.detpedidos_action_window"/>-->
+
+	</data>
+</odoo>

@@ -1,0 +1,93 @@
+<odoo>
+	<data>
+
+		<!--Vistas de empleados-->
+
+		<record model="ir.ui.view" id="modelos9.empleados_list_view">
+			<field name="name">modelos9.empleados.view.tree</field>
+			<field name="model">modelos9.empleados</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="idEmpleado"/>
+					<field name="dni"/>
+					<field name="nombre"/>
+					<field name="direccion"/>
+				</tree>
+			</field>
+		</record>
+
+		<!-- search -->
+
+		<record model="ir.ui.view" id="modelos9.empleados_search_view">
+			<field name="name">modelos9.empleados.view.search</field>
+			<field name="model">modelos9.empleados</field>
+			<field name="arch" type="xml">
+				<search>
+					<field name="idEmpleado"/>
+					<field name="dni"/>
+					<field name="nombre"/>
+					<field name="direccion"/>
+					<group>
+						<filter name="group_by_name" string="idEmpleado" context="{'gropup_by':'idEmpleado'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<!-- form -->
+
+		<record model="ir.ui.view" id="modelos9.empleados_form_view">
+			<field name="name">modelos9.empleados.view.form</field>
+			<field name="model">modelos9.empleados</field>
+			<field name="arch" type="xml">
+				<form string="Información Empleados">
+					<sheet>
+						<div class="oe_title">
+							<h1>
+                				Empleados:
+							</h1>
+						</div>
+						<group>
+							<group>
+								<separator string="Datos"/>
+								<field name="idEmpleado" placeholder="ID Empleados"/>
+								<field name="dni" placeholder="DNI Empleados"/>
+								<field name="nombre" placeholder="Nombre Empleados"/>
+								<field name="direccion" placeholder="Dirección Empleados"/>
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+
+		</record>
+
+		<!-- calendar
+
+		<record model="ir.ui.view" id="modelos9.empleados_calendar_view">
+			<field name="name">modelos9.empleados.view.calendar</field>
+			<field name="model">modelos9.empleados</field>
+			<field name="arch" type="xml">
+				<calendar string="Fecha de Publicación" date_start="date" color="name" mode="month">
+					<field name="name"/>
+					<field name="imagen"/>
+					<field name="precio"/>
+				</calendar>
+			</field>
+		</record>
+
+		Definición de menús-->
+
+		<record model="ir.actions.act_window" id="modelos9.empleados_action_window">
+			<field name="name">Empleados</field>
+			<field name="res_model">modelos9.empleados</field>
+			<!--<field name="view_mode">tree,form,calendar</field>-->
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem name="Empleados" id="modelos9.menu_empleados" parent="modelos9.menu_root" action="modelos9.empleados_action_window"/>
+		<!-- Añadido el action de abajo a arriba, para volver, borra el action ^ -->
+		<!--<menuitem name="Todos los Empleados" id="modelos9.menu_empleados_list" parent="modelos9.menu_empleados" action="modelos9.empleados_action_window"/>-->
+
+	</data>
+</odoo>

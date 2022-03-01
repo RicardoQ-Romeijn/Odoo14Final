@@ -1,0 +1,28 @@
+<odoo>
+    <record id="modelos9.empleados_report" model="ir.actions.report">
+        <field name="name"> Informe de Empleados</field>
+        <field name="model">modelos9.empleados</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">modelos9.empleados_report_view</field>
+        <field name="report_file">modelos9.empleados_report</field>
+        <field name="binding_model_id" ref="model_modelos9_empleados"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="empleados_report_view">
+        <t t-call="web.html_container">
+            <!-- muestra datos de la empresa (salta página) -->
+            <t t-call="web.external_layout">
+                <h1>Empleados</h1><br />
+                <t t-foreach="docs" t-as="empleados">
+                    <ul>
+                        <li>ID Empleado: <span t-field="empleados.idEmpleado" /></li>
+                        <li>DNI: <span t-field="empleados.dni" /></li>
+                        <li>Nombre: <span t-field="empleados.nombre" /></li>
+                        <li>Dirección: <span t-field="empleados.direccion" /></li>
+                    </ul>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,29 @@
+<odoo>
+    <record id="modelos9.productos_report" model="ir.actions.report">
+        <field name="name"> Informe de Productos</field>
+        <field name="model">modelos9.productos</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">modelos9.productos_report_view</field>
+        <field name="report_file">modelos9.productos_report</field>
+        <field name="binding_model_id" ref="model_modelos9_productos"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="productos_report_view">
+        <t t-call="web.html_container">
+            <!-- muestra datos de la empresa (salta página) -->
+            <t t-call="web.external_layout">
+                <h1>Productos</h1><br />
+                <t t-foreach="docs" t-as="productos">
+                    <ul>
+                        <li>ID Producto: <span t-field="productos.idProducto" /></li>
+                        <li>ID Proveedor: <span t-field="productos.idProveedor" /></li>
+                        <li>ID Categoria: <span t-field="productos.idCategoria" /></li>
+                        <li>Nombre: <span t-field="productos.nombre" /></li>
+                        <li>Precio x Unidad: <span t-field="productos.preciounidad" /></li>
+                    </ul>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

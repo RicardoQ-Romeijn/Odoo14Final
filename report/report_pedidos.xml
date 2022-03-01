@@ -1,0 +1,29 @@
+<odoo>
+    <record id="modelos9.pedidos_report" model="ir.actions.report">
+        <field name="name"> Informe de Pedidos</field>
+        <field name="model">modelos9.pedidos</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">modelos9.pedidos_report_view</field>
+        <field name="report_file">modelos9.pedidos_report</field>
+        <field name="binding_model_id" ref="model_modelos9_pedidos"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="pedidos_report_view">
+        <t t-call="web.html_container">
+            <!-- muestra datos de la empresa (salta página) -->
+            <t t-call="web.external_layout">
+                <h1>Pedidos</h1><br />
+                <t t-foreach="docs" t-as="pedidos">
+                    <ul>
+                        <li>ID Pedido: <span t-field="productos.idPedidos" /></li>
+                        <li>ID Cliente: <span t-field="productos.idCliente" /></li>
+                        <li>ID Empleado: <span t-field="productos.idEmpleado" /></li>
+                        <li>Cargo: <span t-field="productos.cargo" /></li>
+                        <li>Fecha Pedido: <span t-field="productos.date" /></li>
+                    </ul>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
